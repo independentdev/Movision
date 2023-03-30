@@ -4,7 +4,6 @@ Android App using The Movie DB API
 
 
 ## Description
-
 A simple app that contains basic list detail functionality with unit tests. It connects to TMDB API and fetch popular, on playing and upcoming movies.
 
 
@@ -23,3 +22,5 @@ A simple app that contains basic list detail functionality with unit tests. It c
 - keep views only responsible for UI related code
 - ViewModel contains only business logic and provides connection between the UI and Domain layer
 - Domain layer provides usecases and data to ViewModel classes. (single source of truth)
+
+<img src="https://github.com/independentdev/Movision/blob/master/docs/achitecture.png" width="500" height="300">
