@@ -28,6 +28,13 @@ android {
 		}
 	}
 	applicationVariants.all { variant ->
+
+		Properties properties = new Properties()
+		if (rootProject.file("local.properties").exists()) {
+			properties.load(rootProject.file("local.properties").newDataInputStream())
+		}
+
+		def API_KEY = properties.getProperty("API_KEY", "")
 		variant.buildConfigField 'String', 'API_URL', "\"$API_URL\""
 		variant.buildConfigField 'String', 'API_KEY', "\"$API_KEY\""
 	}
