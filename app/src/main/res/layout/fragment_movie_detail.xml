@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<variable
+			name="viewState"
+			type="im.independentdev.movision.ui.detail.MovieDetailViewModel.MovieDetailFragmentViewState" />
+	</data>
+
+	<im.independentdev.movision.ui.base.BaseStateView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:id="@+id/baseView">
+
+		<androidx.core.widget.NestedScrollView
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:fillViewport="true"
+			app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:paddingBottom="@dimen/padding_16dp"
+				android:orientation="vertical">
+
+				<ImageView
+					android:layout_width="match_parent"
+					android:layout_height="200dp"
+					android:id="@+id/headerImage"
+					android:alpha="0.8"
+					android:background="@color/colorHelper"
+					android:contentDescription="@string/movie_image"
+					android:scaleType="centerCrop"
+					app:applyCorner="@{false}"
+					app:imageUrl="@{viewState.movieDetailItems.backdropPath}"
+					app:layout_collapseParallaxMultiplier="0.7"
+					app:layout_constraintTop_toTopOf="parent"
+					tools:src="@drawable/temp_large" />
+
+				<androidx.constraintlayout.widget.ConstraintLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:background="@color/colorTitleBarBackground"
+					android:paddingHorizontal="@dimen/padding_8dp"
+					android:paddingVertical="@dimen/padding_16dp"
+					>
+
+					<ImageView
+						android:layout_width="90dp"
+						android:layout_height="132dp"
+						android:id="@+id/imageViewMoviePoster"
+						app:applyCorner="@{true}"
+						app:imageUrl="@{viewState.movieDetailItems.imagePath}"
+						app:layout_constraintStart_toStartOf="parent"
+						app:layout_constraintTop_toTopOf="parent"
+						app:layout_constraintBottom_toBottomOf="parent"
+						tools:src="@drawable/temp" />
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:id="@+id/textViewMovieTitle"
+						android:layout_marginEnd="@dimen/margin_8dp"
+						android:layout_marginStart="@dimen/margin_8dp"
+						android:text="@{viewState.movieDetailItems.title}"
+						android:textColor="@color/white"
+						android:textSize="@dimen/textSizeLarge"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toEndOf="@id/imageViewMoviePoster"
+						app:layout_constraintTop_toTopOf="@id/imageViewMoviePoster"
+						tools:text="Here is movie name" />
+
+					<androidx.appcompat.widget.AppCompatTextView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:id="@+id/textViewShortDescription"
+						android:layout_marginEnd="@dimen/margin_16dp"
+						android:layout_marginTop="@dimen/margin_8dp"
+						android:text="@{viewState.movieDetailItems.subTitle}"
+						android:textColor="@color/gray9ba0a6"
+						android:textSize="@dimen/textSizeNormal"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toStartOf="@+id/textViewMovieTitle"
+						app:layout_constraintTop_toBottomOf="@+id/textViewMovieTitle"
+						tools:text="Here is movie name" />
+
+					<androidx.appcompat.widget.AppCompatRatingBar
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:id="@+id/ratingBarVoteAverage"
+						style="@style/Widget.AppCompat.RatingBar.Small"
+						android:layout_marginTop="@dimen/margin_8dp"
+						android:numStars="5"
+						android:rating="@{viewState.movieDetailItems.voteAverage}"
+						android:stepSize="0.1"
+						app:layout_constraintStart_toStartOf="@+id/textViewMovieTitle"
+						app:layout_constraintTop_toBottomOf="@id/textViewShortDescription" />
+
+					<HorizontalScrollView
+						android:layout_width="0dp"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/margin_8dp"
+						app:layout_constraintEnd_toEndOf="parent"
+						app:layout_constraintStart_toStartOf="@id/textViewMovieTitle"
+						app:layout_constraintTop_toBottomOf="@id/ratingBarVoteAverage"
+						app:visibility="@{true}">
+
+						<com.google.android.material.chip.ChipGroup
+							android:id="@+id/chipGroupGenres"
+							android:layout_width="wrap_content"
+							android:layout_height="wrap_content"
+							android:orientation="horizontal" />
+					</HorizontalScrollView>
+
+				</androidx.constraintlayout.widget.ConstraintLayout>
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginStart="@dimen/margin_16dp"
+					android:layout_marginTop="@dimen/margin_20dp"
+					android:text="@string/overview"
+					android:textColor="@color/white"
+					android:textSize="@dimen/textSizeMedium" />
+
+				<androidx.appcompat.widget.AppCompatTextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:id="@+id/textViewOverView"
+					android:layout_marginHorizontal="@dimen/margin_16dp"
+					android:layout_marginTop="@dimen/margin_8dp"
+					android:lineSpacingExtra="3dp"
+					android:text="@{viewState.movieDetailItems.overview}"
+					android:textColor="@color/gray9ba0a6"
+					android:textSize="@dimen/textSizeNormal"
+					tools:text="@string/lorem" />
+
+				<include
+					android:id="@+id/layoutCredits"
+					layout="@layout/layout_movie_view_pager"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/margin_16dp"
+					app:title="@{@string/cast}"
+					app:visibility="@{true}" />
+			</LinearLayout>
+
+		</androidx.core.widget.NestedScrollView>
+
+	</im.independentdev.movision.ui.base.BaseStateView>
+</layout>

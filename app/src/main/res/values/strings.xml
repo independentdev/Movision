@@ -1,0 +1,22 @@
+<resources>
+	<string name="app_name">Movision</string>
+	<string name="something_went_wrong">Something went wrong.</string>
+	<string name="retry">Retry</string>
+	<string name="not_found">I have no idea!</string>
+	<string name="transition_from_home_to_search" translatable="false">transitionFromHomeToSearch</string>
+	<string name="upcoming">Upcoming Movies</string>
+	<string name="popular">Popular Movies</string>
+	<string name="similar">Similar Movies</string>
+	<string name="cast">Top Billed Cast</string>
+	<string name="recommendation">Recommendation Movies</string>
+	<string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</string>
+
+	<!-- Error -->
+	<string name="error_unknown">Unexpected error! Please tell us how this happened?</string>
+	<string name="error_connection_not_found">Please check your Internet connection</string>
+	<string name="error_connection_timeout">Connection timeout!</string>
+	<string name="search_view_hint">Search Movie</string>
+	<string name="no_search_result">No search results.</string>
+	<string name="movie_image">Movie Image</string>
+	<string name="overview">Overview</string>
+</resources>

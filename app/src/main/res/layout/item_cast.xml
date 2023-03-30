@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<variable
+			name="cast"
+			type="im.independentdev.movision.data.model.ui.CastViewItem" />
+	</data>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/content">
+
+		<ImageView
+			android:layout_width="@dimen/creditsItemWidth"
+			android:layout_height="@dimen/creditsItemHeight"
+			android:id="@+id/imageViewMoviePoster"
+			app:applyCorner="@{true}"
+			app:imageUrl="@{cast.profilePath}"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			tools:src="@color/colorHelper" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:id="@+id/textName"
+			android:ellipsize="end"
+			android:layout_marginTop="@dimen/margin_8dp"
+			android:singleLine="true"
+			android:text="@{cast.name}"
+			android:textAlignment="center"
+			android:textColor="@color/white"
+			android:textSize="@dimen/textSizeSmall"
+			app:layout_constraintEnd_toEndOf="@id/imageViewMoviePoster"
+			app:layout_constraintStart_toStartOf="@id/imageViewMoviePoster"
+			app:layout_constraintTop_toBottomOf="@id/imageViewMoviePoster"
+			tools:text="Batman" />
+
+		<androidx.appcompat.widget.AppCompatTextView
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:id="@+id/textCharacterName"
+			android:ellipsize="end"
+			android:layout_marginTop="@dimen/margin_4dp"
+			android:singleLine="true"
+			android:text="@{cast.character}"
+			android:textAlignment="center"
+			android:textColor="@color/gray9ba0a6"
+			android:textSize="@dimen/textSizeSmall"
+			app:layout_constraintEnd_toEndOf="@id/imageViewMoviePoster"
+			app:layout_constraintStart_toStartOf="@id/imageViewMoviePoster"
+			app:layout_constraintTop_toBottomOf="@id/textName"
+			tools:text="Batman" />
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
