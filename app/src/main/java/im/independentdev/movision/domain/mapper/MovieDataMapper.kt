@@ -8,6 +8,10 @@ import im.independentdev.movision.domain.DomainConstants
 import javax.inject.Inject
 import javax.inject.Singleton
 
+
+/**
+ * A mapper to convert API model of movie list [MovieListResponse] to its UI model [MovieListViewItem]
+ */
 @Singleton
 class MovieDataMapper @Inject constructor() : Mapper<MovieListResponse, MovieListViewItem?> {
 	override fun mapFrom(item: MovieListResponse): MovieListViewItem {
@@ -24,6 +28,9 @@ class MovieDataMapper @Inject constructor() : Mapper<MovieListResponse, MovieLis
 		)
 	}
 	
+	/**
+	 * Add base url to make full address
+	 */
 	private fun getPosterPath(path: String?) : String {
 		return if (path.orEmpty().isNotEmpty()) "${DomainConstants.POSTER_URL_BASE}$path" else ""
 	}

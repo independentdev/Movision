@@ -8,10 +8,16 @@ import dagger.hilt.android.AndroidEntryPoint
 import im.independentdev.movision.R
 import im.independentdev.movision.data.model.ui.MovieViewItem
 import im.independentdev.movision.databinding.FragmentMainBinding
-import im.independentdev.movision.ui.base.BaseFragment
 import im.independentdev.movision.ui.adapter.BasicViewPagerTransformation
 import im.independentdev.movision.ui.adapter.MoviePagerAdapter
+import im.independentdev.movision.ui.base.BaseFragment
 
+
+/**
+ * [BaseFragment] subclass.
+ * It is root view of the navigation and
+ * It is to display Now Playing, Popular and Upcoming movies
+ */
 @AndroidEntryPoint
 class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>() {
 	
@@ -54,6 +60,9 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>() {
 		}
 	}
 	
+	/**
+	 * Set adapter to display Upcoming and Popular Movies
+	 */
 	private fun setupSmallItemViewPagerAdapter(movies: List<MovieViewItem>, viewPager: ViewPager) {
 		MoviePagerAdapter(requireContext(), MoviePagerAdapter.ITEMTYPE.SMALL).apply {
 			setItem(movies)
@@ -62,6 +71,9 @@ class MainFragment : BaseFragment<FragmentMainBinding, MainViewModel>() {
 		}
 	}
 	
+	/**
+	 * Set adapter to display Now Playing Movies
+	 */
 	private fun setupLargeItemViewPagerAdapter(movies: List<MovieViewItem>) {
 		MoviePagerAdapter(requireContext(), MoviePagerAdapter.ITEMTYPE.LARGE).apply {
 			setItem(movies)

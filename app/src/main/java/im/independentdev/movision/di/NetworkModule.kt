@@ -20,6 +20,10 @@ import java.lang.reflect.Type
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+
+/**
+ * A property of type module. Used to initialize all network call related dependency
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 class NetworkModule {

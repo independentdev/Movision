@@ -5,6 +5,10 @@ import okhttp3.Interceptor
 import okhttp3.Response
 import javax.inject.Inject
 
+/**
+ *  API requires key parameter in the requests
+ *  This class as interceptor intercepts the request and adds required parameter
+ */
 class ApiKeyInterceptor @Inject constructor() : Interceptor {
 	
 	override fun intercept(chain: Interceptor.Chain): Response {

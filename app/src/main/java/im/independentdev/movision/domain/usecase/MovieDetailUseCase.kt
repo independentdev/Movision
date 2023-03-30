@@ -9,6 +9,10 @@ import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * A usecase for movie detail screen
+ * fetching Movie detail and credits data and map it to UI model
+ */
 @Singleton
 class MovieDetailUseCase @Inject constructor(
 	private val repository: MovieRemoteRepository,

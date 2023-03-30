@@ -13,6 +13,11 @@ import im.independentdev.movision.databinding.ItemMovieBinding
 import androidx.databinding.library.baseAdapters.BR
 
 
+/**
+ * Adapter for Movie list view pagers in [.MainFragment]
+ * @param itemType to define item view as this adapter
+ * supports 2 different item layout for small and large items
+ */
 class MoviePagerAdapter(context: Context, private val itemType: ITEMTYPE) : PagerAdapter() {
 	private var movieItem = emptyList<MovieViewItem>()
 	

@@ -8,6 +8,9 @@ import im.independentdev.movision.domain.mapper.MovieDataMapper
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 
+/**
+ * A usecase for fetching Movies data and map it to UI model
+ */
 class GetMoviesUseCase @Inject constructor(
 	private val repository: MovieRemoteRepository,
 	private val itemMapper: MovieDataMapper

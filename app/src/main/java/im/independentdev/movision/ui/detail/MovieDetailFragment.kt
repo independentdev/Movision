@@ -10,6 +10,11 @@ import im.independentdev.movision.databinding.FragmentMovieDetailBinding
 import im.independentdev.movision.ui.adapter.CreditsAdapter
 import im.independentdev.movision.ui.base.BaseFragment
 
+/**
+ * [BaseFragment] subclass.
+ * It is a detail view for selected movie
+ * It is to display poster and headar image and main details of the movie
+ */
 @AndroidEntryPoint
 class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding, MovieDetailViewModel>() {
 	
@@ -24,6 +29,9 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding, MovieDetail
 		viewModel.getMovieData()
 	}
 	
+	/**
+	 * Set fetched data [MovieDetailViewModel.MovieDetailFragmentViewState].
+	 */
 	private fun setViewState(fragmentViewState: MovieDetailViewModel.MovieDetailFragmentViewState) {
 		// bind viewState
 		binding.viewState = fragmentViewState
@@ -46,6 +54,9 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding, MovieDetail
 		}
 	}
 	
+	/**
+	 * Set view pager to display cast information
+	 */
 	private fun setupCreditsViewPager(items: List<CastViewItem>) {
 		CreditsAdapter(requireContext()).apply {
 			setItems(items)

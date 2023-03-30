@@ -12,6 +12,9 @@ import im.independentdev.movision.data.model.ui.CastViewItem
 import im.independentdev.movision.databinding.ItemCastBinding
 
 
+/**
+ * Adapter for Cast view pager in [.MovieDetailFragment]
+ */
 class CreditsAdapter(context: Context) : PagerAdapter() {
 	private var castItem = emptyList<CastViewItem>()
 	
